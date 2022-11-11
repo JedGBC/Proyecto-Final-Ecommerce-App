@@ -29,7 +29,8 @@ Notar que debes mostrar hacer el cambio de vista (entre catálogo y carrito de c
 
 //declare vars              //Usos
 let itemSelected = ""; //eventoClickAddCartProducts
-let statusCarritoAbierto = false; //
+let statusCarritoAbierto = false; //false= cerrado , true = abierto
+let productosCarrito = []; //array de lo que se cargara en el carrito
 
 let products = [
     { "idProduct": 1, "imgProduct": "img/products/Screenshot_1.png", "priceProduct": 0, "nameProduct": "Cafetera Dolce- Gusto Pro" },
@@ -94,7 +95,7 @@ function eventoClickAddCartProducts() {
             itemSelected = element.parentNode.parentNode.id;
             //funcion para pasar el item
             console.log("Click on idProduct# ", element.parentNode.parentNode.id);
-            cargaProductsCarrito(itemSelected);
+            cargaProductsCarrito(itemSelected,products);
             //element.removeEventListener("click");
         })
     })
@@ -183,11 +184,62 @@ function onclick22(value){
 
 
 /// AGREGAR Productos al Carrito
-function cargaProductsCarrito(idProduct){
+function cargaProductsCarrito(idProduct,array){
         console.log("***********+cargaProductsCarrito, ID:",idProduct);
+        cargarCarritoImg(1);
+        let positionArray = -1;
+        for (let i = 0; i < array.length; i++) {
+            if (array[i].idProduct==idProduct) {
+                positionArray = i;
+                break;
+            }
+        }
+            
+    if (positionArray!= -1) {
+            console.log("positionArray = ",positionArray);
+            console.log("Objeto encontrado: ",array[positionArray]);
+        let objetoEncontrado = array[positionArray];
 
+        let duplicidad = verificarNoDuplicidadProductoCart(idProduct,productosCarrito);
+        //duplicidad // 0=no 1=ya esta 1 vez y asi........
+        if (duplicidad==0) {
+            objetoEncontrado.amountProduct= 1;
+            console.log(objetoEncontrado);
+            productosCarrito.push(objetoEncontrado);
+        } else {
+            let positionArrayD = -1;
+            for (let i = 0; i < productosCarrito.length; i++) {
+                if (productosCarrito[i].idProduct==idProduct) {
+                    positionArrayD = i;
+                    break;
+                }
+            }
+            const valorNew = duplicidad+1;
+            productosCarrito[positionArrayD].amountProduct= valorNew;
+        }
 
-    return;
+            console.log("Array -> productosCarrito: ",productosCarrito);
+    }
+}
+
+function verificarNoDuplicidadProductoCart(idProduct,array){
+    let positionArrayE = -1;
+    for (let i = 0; i < array.length; i++) {
+        if (array[i].idProduct==idProduct) {
+            positionArrayE = i;
+            break;
+        }
+    }
+    let duplicidad = 0;
+
+    if (positionArrayE!= -1) {
+        duplicidad = array[positionArrayE].amountProduct;
+        console.log("Duplicidad del producto: ",duplicidad);
+        return duplicidad;
+    } else {
+        console.log("Duplicidad del producto: ",duplicidad);
+        return duplicidad;
+    }
 }
 
 
@@ -226,18 +278,11 @@ eventoClickEraseCartProducts(); //genera la red de eventos sobre los botones de 
 
 
 
-/////Asigno valor
-document.querySelector("#cant").value = 1;
-console.log(document.getElementById("cant").value);
-
-document.querySelector("#cartLogo img").attributes[0].nodeValue = "img/cart_empty.png"; //"img/cart_empty.png"  "img/cart_carged.png"  "img/shoping_cart.png"  "img/shopping-bag-3744.png"
-
-
-
 function cargarCarritoImg(value){
+    document.querySelector("#cartLogo img").attributes[0].nodeValue = "img/cart_empty.png";// cargo la imagen del carrito. "img/cart_empty.png"  "img/cart_carged.png"  "img/shoping_cart.png"  "img/shopping-bag-3744.png"
     if (value==1) {
         document.getElementById("im2").style.left="-91px";
-        document.querySelectorAll("#cartLogo img")[1].attributes[0].nodeValue = "img/shopping-bag-3744.png";
+        document.querySelectorAll("#cartLogo img")[1].attributes[0].nodeValue = "img/shopping-bag-3744.png";//cargo la imagen donde el carrito esta con items
     } else {
         document.getElementById("im2").style.left="10000px";
         document.querySelectorAll("#cartLogo img")[1].attributes[0].nodeValue = "";
@@ -246,8 +291,12 @@ function cargarCarritoImg(value){
 }
 
 
-cargarCarritoImg(0); 
+cargarCarritoImg(0);//0 es carrito vacio //1 es carrito con al menos 1 item. 
 
 
 
 
+/////Asigno valor a la cantidad en carrito
+document.querySelectorAll(".cant")[0].value = 1;
+    //console.log(document.querySelectorAll(".cant")[0].value);
+    //console.log(document.getElementsByClassName("cant")[0].value);
