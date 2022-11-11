@@ -1,4 +1,7 @@
 'use strict'
+
+//JEDGUARD G. BATISTA C. 
+
 //https://www.mercadolibre.cl/ofertas#c_id=/home/promotions-recommendations/element&c_uid=79c55ea8-abf2-4132-af47-63851754687e
 /*
 Proyecto Final 👨‍🎓 Ecommerce App
@@ -70,10 +73,19 @@ let products = [
     { "idProduct": 1, "imgProduct": "img/products/Screenshot_30.png", "priceProduct": 0, "price": 0, "nameProduct": "Samchong S22 Ultra 1TB Economic" }
 ];
 
+//Mezclar Arreglo hacer Random las posiciones
 
+const mezclarArreglo = products => {
+	for (let i = products.length - 1; i > 0; i--) {
+		let indiceAleatorio = Math.floor(Math.random() * (i + 1));
+		let temporal = products[i];
+		products[i] = products[indiceAleatorio];
+		products[indiceAleatorio] = temporal;
+	}
+}
+mezclarArreglo(products);
 
-
-
+//Inicializa el array cargando valores Random
 
 iniciarArrayProducts(products);
 
