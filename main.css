@@ -1,0 +1,259 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'open_sansregular',Arial,Helvetica,sans-serif;
+    list-style: none;
+}
+
+/*NAV*/
+
+body{
+    max-width: 1920px;
+}
+
+h6 {
+    color: white;
+    position: absolute;
+}
+
+#header {
+    background-color: black;
+    width: 100vw;
+}
+
+#logo {
+    display: inline-block;
+    color: yellow;
+    width: fit-content;
+    margin-top: 34px;
+    margin-left: 10px;
+    width: -moz-available;
+}
+
+#logo h3{
+    width: fit-content;
+    cursor: pointer;
+}
+
+#space1{
+    display: inline-block;
+    width: 75%;
+    height: 100px;
+}
+
+img{
+    height: 284px;
+    width: 284px;
+}
+
+#cartLogo img{
+    display: inline-block;
+    height: 100px;
+    width: 100px;
+    cursor: pointer;
+    background: transparent;
+    margin-right: 15px;
+}
+
+#cartLogo img:nth-child(2){
+    position: relative;
+    z-index: -1;
+    bottom: 30px;
+    height: 70px;
+    width: 70px;
+    margin-right: 0px;
+}
+
+#cartLogo{
+    position: fixed;
+    right: -65px;
+}
+
+nav {
+    display: flex;
+}
+
+#cuerpo {
+    display: block;
+    height: auto;
+    width: 100%wv;
+    background-color: #ededed;
+}
+
+
+/*  Productos  */
+
+h2{
+    padding: 5px 0 0 5px;
+    font-family: "Proxima Nova", -apple-system, "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+    font-size: 26px;
+    line-height: 30px;
+    letter-spacing: normal;
+}
+
+#contenedorCatalogoProductos{
+    display: grid;
+    grid-template-areas: 
+    'prod prod prod prod prod'
+    'prod prod prod prod prod'
+    'prod prod prod prod prod';
+    gap: 10px;
+    padding: 10px;
+}
+
+.listProduct{
+    
+    width: 284px;
+    min-height: 440px; 
+    margin: 15px;
+    border: 1px solid #fff;
+    background-color: #ffffff;
+    border-radius: 6px;
+}
+
+.product {
+    width: 284px;
+    height: auto; 
+    display: flex;
+    flex-direction: column;
+}
+
+.imgProduct{
+    width: 284px;
+    height: 284px; 
+    background-color: beige;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.nameProduct {
+    margin-top: 15px;
+    font-size: 20px;
+    height: 46.4px;
+}
+
+.priceProduct {
+    font-size: 18px;
+    margin: 15px 0 2px 2px;
+    font-weight: bold;
+}
+
+.btonAgregarCart{
+    margin-top: 15px;
+    display: flex;
+    justify-content: flex-end; /*v*/
+    align-items: center; /*h*/
+
+    flex-direction: column-reverse;
+}
+
+.btonAgregarCart>button {
+    
+    color: #3483fa;
+    cursor: pointer;
+    width: 230px;
+    height: 26px;
+    background-color: #ffffff;
+    font-size: 15px;
+    border-radius: 10px;
+}
+
+
+.btonAgregarCart>button:hover {
+    color: blue;
+    background-color: rgba(205, 203, 203, 0.546);
+    border-radius: 15px;
+    font-weight: bold;
+}
+
+
+/*CART SPACE*/
+#cartContainer{
+    min-height: fit-content;
+}
+
+#cartTitle{
+    display: flex;
+}
+
+#cartTitle h1{
+    margin: 0 200px 0 5px;
+}
+
+#cartTitle h4{
+    display: flex;
+    color: gold;
+    -webkit-text-stroke: 0.6px white;
+    background-color: black;
+    width: 300px;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+#cart,table{
+    margin: 15px 0 15px 0;
+}
+
+/*TABLE*/
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #a4a4a442;
+    text-align: left;
+    padding: 8px;
+}
+
+
+input {
+    text-align: center;
+    width: 60px;
+}
+
+
+/*MediaQuery*/
+
+@media only screen and (max-width: 1672px) {
+    #contenedorCatalogoProductos{
+        grid-template-areas: 
+        'prod prod prod prod'
+        'prod prod prod prod'
+        'prod prod prod prod';
+        gap: 10px;
+        padding: 10px;
+    }
+}
+
+@media only screen and (max-width: 1328px) {
+    #contenedorCatalogoProductos{
+        grid-template-areas: 
+        'prod prod prod'
+        'prod prod prod'
+        'prod prod prod';
+        gap: 5px;
+        padding: 5px;
+    }
+    .listProduct{
+        margin-left: 10%;
+    }
+}
+
+@media only screen and (max-width: 1111px) {
+    #contenedorCatalogoProductos{
+        grid-template-areas: 
+        'prod prod'
+        'prod prod'
+        'prod prod';
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .listProduct{
+        margin-left: 75px;
+    }
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <link rel="icon" type="image/x-icon"
+        href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAKTjWnaZk9eXJTp4sMlzdCPPVYnBVpmBaqA&usqp=CAU">
+
+</head>
+
+<body>
+    <h6>Usuario: Jedguard Batista</h6>
+    <div id="cartLogo" ><img src="" alt="" id="im1" onclick="abreCierraCarrito()"><img src="" alt="" id="im2" style="left:0;"></div>
+    <div id="contenedorNav">
+        <div id="header">
+            <nav>
+                <div id="logo">
+                    <h3 onclick="window.location.reload()">Proyecto Final 👨‍🎓 Ecommerce App</h3>
+                </div>
+                <div id="space1"></div>
+            </nav>
+        </div>
+    </div>
+
+    <div>
+        <div id="cartContainer">
+            <!--Se agregan los productos al carrito de compra <li> -->
+            <div id="cart">
+                <tbody>
+                    <div id="cartTitle">
+                        <h1>Carrito </h1>
+                        <h4 id="cartEmpty">El carrito está vacío!</h4>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Descripción Producto</th>
+                                <th>Cantidad</th>
+                                <th>Precio</th>
+                                <th>Sub-Total</th>
+                                <th><span id="onClickLimpiar"><button type="submit">Limpiar Carrito</button></span></th> <!-- ONCLICK FUNCION LIMPIAR CARRITO -->
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                            <tr id="1824">
+                                <td>Calzado clasico talla S</td>
+                                <td> <input type="number" id="cant" value=""></td>
+                                <td>$ 15</td>
+                                <td>$ 30</td>
+                                <td><span id="onClick"><button type="submit">Eliminar</button></span></td> <!-- ONCLICK FUNCION ELIMINAR -->
+                            </tr>
+                            <tr id="1825">
+                                <td>Calzado clasico talla M</td>
+                                <td> <input type="number" id="cant" value=""></td>
+                                <td>$ 15</td>
+                                <td>$ 30</td>
+                                <td><span id="onClick"><button type="submit">Eliminar</button></span></td> <!-- ONCLICK FUNCION ELIMINAR -->
+                            </tr>
+                            <tr id="1826">
+                                <td>Calzado clasico talla L</td>
+                                <td> <input type="number" id="cant" value=""></td>
+                                <td>$ 15</td>
+                                <td>$ 30</td>
+                                <td><span id="onClick"><button type="submit">Eliminar</button></span></td> <!-- ONCLICK FUNCION ELIMINAR -->
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <td></td>
+                            <td></td>
+                            <td>Total:</td>
+                            <td>$ 30</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </tbody>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div id="cuerpo">
+        <h2>Catálogo de Productos</h2>
+        <ol id="contenedorCatalogoProductos">
+            <!--Se agregan los productos al catalogo <li> -->
+        </ol>
+    </div>
+
+
+
+
+</body>
+<script src='main.js'></script>
+
+</html>
