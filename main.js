@@ -74,7 +74,7 @@ let products = [
 ];
 
 //Mezclar Arreglo hacer Random las posiciones
-
+/*
 const mezclarArreglo = products => {
 	for (let i = products.length - 1; i > 0; i--) {
 		let indiceAleatorio = Math.floor(Math.random() * (i + 1));
@@ -84,7 +84,7 @@ const mezclarArreglo = products => {
 	}
 }
 mezclarArreglo(products);
-
+*/
 //Inicializa el array cargando valores Random
 
 iniciarArrayProducts(products);
@@ -156,7 +156,12 @@ function eventoClickEraseCartProducts() {
             //funcion para Eliminar el item
             console.log("Click on Eliminar idProduct# ", element.parentNode.parentNode.id);
         })
+        
     })
+    console.log("///////**********************************",productosCarrito.length,productosCarrito);
+    if (productosCarrito.length==0) {
+        mensajeCartEmpty();
+    }
 }
 
 
